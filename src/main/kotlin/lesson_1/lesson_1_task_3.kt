@@ -1,4 +1,4 @@
-package lesson_1_task_3
+package lesson_1
 
 fun main() {
     val year = 1961
