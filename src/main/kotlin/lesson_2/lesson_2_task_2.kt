@@ -11,7 +11,7 @@ fun main() {
 
     val expensesConst = workerConst * payCheckConst //Затраты на зп постоянных сотрудников
     val totalExpenditure = expensesConst + (workerInterim * payCheckInterim) //Общие затраты после прихода стажёров
-    val arithmeticAfter = (payCheckConst + payCheckInterim) / 2 //средняя зп после устройства стажёров
+    val arithmeticAfter = (totalExpenditure) / (workerConst + workerInterim) //средняя зп по всем работникам
 
     println("Расходы на выплату зарплаты постоянных сотрудников - $expensesConst у.е.")
     println("Общие расходы по зарплате после прихода сотрудников - $totalExpenditure у.е.")
