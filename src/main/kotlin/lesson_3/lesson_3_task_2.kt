@@ -7,16 +7,10 @@ fun main() {
     val patronymic = "Сергеевна"
     var age = 20
 
-    println("Фамилия: $surName")
-    println("Имя: $name")
-    println("Отчество: $patronymic")
-    println("Возраст: $age лет")
+    println("$surName $name $patronymic, $age лет ")
 
     surName = "Сидорова"
     age = 22
 
-    println("Фамилия: $surName")
-    println("Имя: $name")
-    println("Отчество: $patronymic")
-    println("Возраст: $age года")
+    println("$surName $name $patronymic, $age лет ")
 }
