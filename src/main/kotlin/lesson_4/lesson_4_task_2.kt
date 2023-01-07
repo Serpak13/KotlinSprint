@@ -8,8 +8,8 @@ fun main() {
     val cargoWeightTwo = 50
     val cargoVolumeTwo = 100
 
-    println("Average для груза весом $cargoWeightOne кг и объёмом $cargoVolumeOne л: ${((cargoWeightOne >= MIN_WEIGHT) && (cargoWeightOne == MAX_WEIGHT)) && (cargoVolumeOne < VOLUME)}")
-    println("Average для груза весом $cargoWeightTwo кг и объёмом $cargoVolumeTwo л: ${((cargoWeightTwo >= MIN_WEIGHT) && (cargoWeightTwo == MAX_WEIGHT)) && (cargoVolumeTwo < VOLUME)}")
+    println("Average для груза весом $cargoWeightOne кг и объёмом $cargoVolumeOne л: ${((cargoWeightOne >= MIN_WEIGHT) && (cargoWeightOne <= MAX_WEIGHT)) && (cargoVolumeOne < VOLUME)}")
+    println("Average для груза весом $cargoWeightTwo кг и объёмом $cargoVolumeTwo л: ${((cargoWeightTwo >= MIN_WEIGHT) && (cargoWeightTwo <= MAX_WEIGHT)) && (cargoVolumeTwo < VOLUME)}")
 }
 
 //константы
