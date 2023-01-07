@@ -6,7 +6,7 @@ fun main() {
     //Выводим отдельные переменные
     val startMotion = info.substringBefore("-") // откуда
     val finishMotion = info.substringAfter("-").substringBefore(";")//куда
-    val numberMotion = info[6] // номер хода
+    val numberMotion = info.substringAfter(";") // номер хода
 
     println(startMotion)
     println(finishMotion)
