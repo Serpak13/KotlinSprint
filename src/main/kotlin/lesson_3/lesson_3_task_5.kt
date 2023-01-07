@@ -1,18 +1,15 @@
 package lesson_3
 
-
-
-
 fun main() {
-    val startMotion = "D2"
-    val finishMotion = "D4"
-    val numberMotion = "0"
-
-    println("$startMotion-$finishMotion;$numberMotion")
+    //Вводные данные
+    val info = "D2-D4;0"
+    //Выводим отдельные переменные
+    val startMotion = info.substringBefore("-") // откуда
+    val finishMotion = info.substringAfter("-").substringBefore(";")//куда
+    val numberMotion = info[6] // номер хода
 
     println(startMotion)
     println(finishMotion)
     println(numberMotion)
-
 
 }
