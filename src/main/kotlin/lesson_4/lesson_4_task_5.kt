@@ -11,18 +11,24 @@ fun main() {
     val boxes = readLine()!!.toInt()
     println("Введине данные о метеоусловиях")
     val meteor = readLine()!!.toBoolean()
-    //УСЛОВИЕ
-    if ((damage == DAMAGE_HULL) && ((CREW_SUM_MIN <= crew) and (crew < CREW_SUM_REC)) && (BOXES_OF_PROV < boxes) && ((meteor == METEOR_CONDITIONS) or (meteor !== METEOR_CONDITIONS))) {
-        println("Вылет корабля возможен")
-    } else if (((damage == DAMAGE_HULL) or (damage !== DAMAGE_HULL)) && (crew == CREW_SUM_REC) && (BOXES_OF_PROV < boxes) && (meteor == METEOR_CONDITIONS)) {
+    //УСЛОВИЕ (первый вариант)
+    // if ((damage == DAMAGE_HULL) && ((CREW_SUM_MIN <= crew) and (crew < CREW_SUM_REC)) && (BOXES_OF_PROV < boxes) && ((meteor == METEOR_CONDITIONS) or (meteor !== METEOR_CONDITIONS))) {
+    //  println("Вылет корабля возможен")
+    // } else if (((damage == DAMAGE_HULL) or (damage !== DAMAGE_HULL)) && (crew == CREW_SUM_REC) && (BOXES_OF_PROV < boxes) && (meteor == METEOR_CONDITIONS)) {
+    //     println("Вылет корабля возможен")
+    //  } else {
+    //  println("Вылет запрещён")
+
+    //УСЛОВИЕ ВТОРОЙ ВАРИАНТ
+    if ((damage == DAMAGE_HULL && ((CREW_SUM_MIN <= crew) && (crew < CREW_SUM_REC)) && (BOXES_OF_PROV < boxes) && (meteor || !meteor)) || ((damage || !damage) && (crew == CREW_SUM_REC) && (meteor == METEOR_CONDITIONS))) {
         println("Вылет корабля возможен")
     } else {
-        println("Вылет запрещён")
+        println("Вылет запрещён !!!!")
     }
 
 }
 
-const val DAMAGE_HULL = false
+const val DAMAGE_HULL = false //корпус не повреждён
 const val CREW_SUM_MIN = 55
 const val CREW_SUM_REC = 70 // не включительно
 const val BOXES_OF_PROV = 50 // больше 50 ящиков
