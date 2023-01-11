@@ -2,22 +2,22 @@ package lesson_4
 
 
 fun main() {
-    val dayOfHands = 1
-    val dayOfLegs = 3
-    val dayOfBack = 7
-    val dayOfAbs = 1
-    val trainingDay = 5  // какой день тренировки
+    val numberOfDay = 5
+    val isEven = (numberOfDay % 2 == 0)
+    val arms = !isEven
+    val legs = isEven
+    val back = isEven
+    val abs = !isEven
+
 
     println(
         """
-        Упражнение для рук:${(dayOfHands == trainingDay) || (trainingDay == 5)}
-        Упражнение для ног:${dayOfLegs == trainingDay}
-        Упражнения для спины:${dayOfBack == trainingDay}
-        Упражнения для пресса:${dayOfAbs == trainingDay || (trainingDay == 5)}
+        |Упражнение для рук:$arms
+        |Упражнение для ног:$legs
+        |Упражнения для спины:$back
+        |Упражнения для пресса:$abs
         """.trimIndent()
     )
 
 }
 
-//const val PAIN_GAIN = 1 //нечётный день
-//const val RELAX = 0 //чётный день
