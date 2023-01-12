@@ -16,7 +16,7 @@ fun main() {
         val logEnter = readLine()
         println("Введите пароль")
         val passEnter = readLine()
-    }while(logEnter !== logUser && passEnter !== passUser)
+    }while(logEnter != logUser && passEnter != passUser)
 
     println("Авториизация прошла успешно")
 
