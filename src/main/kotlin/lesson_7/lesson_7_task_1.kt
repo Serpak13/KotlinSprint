@@ -19,5 +19,4 @@ fun main() {
     val symbSix = ThreadLocalRandom.current().nextInt(1, 9)
     println("Ваш пароль: $symbOne$symbTwo$symbTree$symbFour$symbFive$symbSix")
 
-
 }
