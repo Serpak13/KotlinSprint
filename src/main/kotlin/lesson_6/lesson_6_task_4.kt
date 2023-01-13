@@ -12,22 +12,21 @@ package lesson_6
 // выводится сообщение – “Было загадано число N”.
 fun main() {
     //Вводные данные
-    val randomNum = arrayOf((1..9).random())
+    val randomNum = (1..9).random()
 
     println("Введите число от 1 до 9")
     var counter = 1  //Счётчик попыток, первая пошла
     var userNum = readLine()!!.toInt()
-    if(userNum == randomNum[0]){
+    if (userNum == randomNum) {
         println("Это была великолепная игра")
-    }
-    else {
+    } else {
         counter = 2
-        while (userNum != randomNum[0] && counter <= 5) {
-            counter +=1
+        while (userNum != randomNum && counter <= 5) {
+            counter++
             println("Введите число ещё раз")
             userNum = readLine()!!.toInt()
         }
-        println("Было загадано число ${randomNum[0]}")
+        println("Было загадано число $randomNum")
     }
 
 }
