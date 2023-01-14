@@ -1,5 +1,4 @@
 package lesson_6
-import java.util.concurrent.ThreadLocalRandom
 
 
 //Задача 5 к Уроку 6
@@ -18,34 +17,34 @@ import java.util.concurrent.ThreadLocalRandom
 // Если три попытки оказались неудачными, вывести сообщение "Доступ запрещен".
 fun main() {
     //Вводные данные
-    var randomNumOne = ThreadLocalRandom.current().nextInt(1, 9)
-    var randomNumTwo = ThreadLocalRandom.current().nextInt(1, 9)
+    var randomNumOne = (1..9).random()
+    var randomNumTwo = (1..9).random()
     var randomSum = randomNumOne + randomNumTwo
+    var counter = 0 // Счётчик для попыток
 
     println("Докажите что вы не бот, решите простой математический пример.\nСколько будет $randomNumOne + $randomNumTwo ?")
-
-    var counter = 1  //Счётчик попыток, первая пошла
+    //Ввод ответа пользователем
+    println("Введите ответ")
     var userNum = readLine()!!.toInt()
-    if(userNum == randomSum){
-        println("Добро пожаловать!")
-    }
-    else {
-        counter = 2 // Вторая попытка пошла
-        while (userNum != randomSum && counter <= 3) {
-            randomNumOne = ThreadLocalRandom.current().nextInt(1, 9)
-            randomNumTwo = ThreadLocalRandom.current().nextInt(1, 9)
-            randomSum = randomNumOne + randomNumTwo
-            counter +=1
-            println("Сколько будет $randomNumOne + $randomNumTwo ?")
-            userNum = readLine()!!.toInt()
-            if(counter <= 3 && userNum != randomSum){
-                println("Доступ запрещён")
-            }
-            else if(userNum == randomSum && counter <= 3){
-                println("Добро пожаловать!")
-            }
+
+    while (counter < 3) {
+        counter++
+        if (userNum == randomSum && counter < 3) {
+            println("Добро пожаловать!")
+            break
+        } else if (userNum != randomSum && counter == 3) {
+            println("Доступ запрещён!")
+            break
         }
+        randomNumOne = (1..9).random()
+        randomNumTwo = (1..9).random()
+        randomSum = randomNumOne + randomNumTwo
+        println("Сколько будет $randomNumOne + $randomNumTwo ?")
+        userNum = readLine()!!.toInt()
+
 
     }
+
 
 }
+
