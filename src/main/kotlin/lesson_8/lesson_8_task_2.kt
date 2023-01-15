@@ -15,11 +15,17 @@ fun main() {
     val arrayOfIngredients = arrayOf("горох", "картофель", "огурец", "яйцо", "мясо", "морковь", "зелень", "майонез")
     println("Введите название ингредиента, чтобы проверить его наличие в рецепте")
     val userChoice = readLine()
-    val isContains = arrayOfIngredients.contains(userChoice)
-    if (isContains == true) {
-        println("Ингредиент $userChoice в рецепте есть")
-    } else {
+    for (i in arrayOfIngredients) {
+        if (i == userChoice) {
+            println("Ингредиент $userChoice есть в списке")
+            break
+        }
+    }
+    if (!arrayOfIngredients.contains(userChoice)) {
         println("Такого ингредиента в рецепте нет")
     }
 
 }
+
+
+
