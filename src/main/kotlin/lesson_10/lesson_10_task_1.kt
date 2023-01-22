@@ -11,30 +11,25 @@ package lesson_10
 // – после сравнения результатов, выведи соответствующее сообщение в консоль. Например:
 // "Победило человечество" или "Победила машина".
 fun main() {
+    println("Кости бросил игрок")
+    val humanTurn = diceTurn()
+    println("Кости бросил компьютер")
+    val machineTurn = diceTurn()
 
-    if (humanTurn()!! > machineTurn()!!) {
+    if (humanTurn!! > machineTurn!!) {
         println("Человечество победило")
     } else {
         println("Победила машина")
     }
 }
 
-// Человек бросает кости
-fun humanTurn(): Int? {
-    println("Кости бросил игрок")
-    val randHum1 = (1..6).random() //Первая кость
-    val randHum2 = (1..6).random() //Вторая кость
-    val humSum = randHum1 + randHum2
-    println("Результат броска игрока: $humSum")
-    return humSum
+// Функция: Бросок костей
+fun diceTurn(): Int? {
+    val randDice1 = (1..6).random() //Первая кость
+    val randDice2 = (1..6).random() //Вторая кость
+    val diceSum = randDice1 + randDice2
+    println("Результат броска: $diceSum")
+    return diceSum
 }
 
-//Компьютер бросает кости
-fun machineTurn(): Int? {
-    println("Кости бросил компьютер")
-    val randMach1 = (1..6).random()
-    val randMach2 = (1..6).random()
-    val machSum = randMach1 + randMach2
-    println("Результат броска компьютера: $machSum")
-    return machSum
-}
+
