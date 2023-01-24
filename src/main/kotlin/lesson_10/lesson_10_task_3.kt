@@ -18,7 +18,7 @@ fun main() {
 
 
 fun getRandomString(length: Int): String {
-    val charset =  ('0'..'9') + ("!@#$%^&*()<>-=+*/")
+    val charset =  (('0'..'9') + ("!@#$%^&*()<>-{}[]<>`~:;№=+*/")).toString()
     return (1..length)
         .map { charset.random() }
         .joinToString("")
