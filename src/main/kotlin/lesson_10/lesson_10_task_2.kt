@@ -11,17 +11,17 @@ package lesson_10
 // – если пароль меньше 4 символов – вывести сообщение: "Логин или пароль недостаточно длинные".
 fun main() {
     println("Введите логин")
-    val logUs = readLine()?.length
+    val logUs = readLine()
     println("Введите пароль")
-    val passUs = readLine()?.length
-    logAndPass(logLen = logUs!!, passLen = passUs!!)
+    val passUs = readLine()
+    validateLogAndPassLength(logLen = logUs!!, passLen = passUs!!)
 
 }
 
 //Функция проверки логина и пароля
 
-fun logAndPass(logLen: Int, passLen: Int): Boolean.Companion {
-    if (logLen > 4 && passLen > 4) {
+fun validateLogAndPassLength(logLen: String, passLen: String): Boolean.Companion {
+    if (logLen.length > 4 && passLen.length > 4) {
         println("Добро пожаловать!")
     } else println("Логин или пароль недостаточно длинные !")
 
