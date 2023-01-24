@@ -20,24 +20,52 @@ package lesson_10
 //Действия в программе должны быть распределены по соответствующим методам без дублирования кода.
 fun main() {
     println("Придумайте логин")
-    var logUser = readLine()?.length
-    logAndPass(logLen = logUser!!)
-    fourCode()
+    val logUser = readLine()
+    validateLogLength(logLen = logUser!!)                  //Проверка длины логина
+    val passReg = getRandomPassword()              //Генерация пароля
+    println(passReg)
+
+    println("Введите логин")
+    val checkLogin = readLine()                     //Проверка Логина
+    println("Введите пароль")
+    val checkPassword = readLine()                  // Проверка Пароля
+    if (checkLogin == logUser && checkPassword == passReg) {
+        println("Авторизация пройдена успешно")
+    } else {
+        do {
+            println("Неверный логин или пароль. Попробуйте снова")
+            println("Введите логин")
+            val tryLog = readLine()
+            println("Введите пароль")
+            val tryPass = readLine()
+        } while (tryLog != logUser && tryPass != passReg)
+        println("Авторизация пройдена успешно")
+    }
+    fourCode() // Генерация кода из смс
 
 }
 
 //Проверка длины логина
-fun logAndPass(logLen: Int): Boolean.Companion {
-    if (logLen > 4) {
-        println("Вам отправлен четырёхзначный код")
+fun validateLogLength(logLen: String): Boolean.Companion {
+    if (logLen.length > 4) {
+        println("Логин принят. Сейчас вы получите сгенерированный пароль ")
     } else {
         do {
             println("Длина логина должна быть более 4х символов. Попробуйте ещё раз")
-            var logTry = readLine()
+            val logTry = readLine()
         } while (logTry?.length!! < 4)
-        println("Логин принят. Вам отправлен четырёхзначный код")
+        println("Логин принят. Сейчас вы получите сгенерированный пароль")
     }
     return Boolean
+}
+
+// ГЕНЕРАЦИЯ ПАРОЛЯ
+
+fun getRandomPassword(): String {
+    val charset =  (('0'..'9') + ("!@#$%^&*()<>-{}[]<>`~:;№=+*/") + ('a'.. 'z') + ('A'..'Z')).toString()
+    return (1..10)
+        .map { charset.random() }
+        .joinToString("")
 }
 
 //Генерация кода
@@ -60,3 +88,4 @@ fun fourCode() {
     }
 
 }
+
