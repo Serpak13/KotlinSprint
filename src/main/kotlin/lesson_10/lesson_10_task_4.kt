@@ -13,16 +13,16 @@ package lesson_10
 fun main() {
 
     do { println("Кости бросил игрок")
-       var humanTurn = diceTurn()
+       val humanTurn = diceTurn()
        println("Кости бросил компьютер")
-       var machineTurn = diceTurn()
-       roundNum(human = humanTurn!!, machine = machineTurn!!)
+       val machineTurn = diceTurn()
+       roundNum(human = humanTurn, machine = machineTurn)
     }while (true)
 
 }
 
 // Функция: Бросок костей (Генерация значений брошенных кубиков)
-fun diceTurn(): Int? {
+fun diceTurn(): Int {
     val randDice1 = (1..6).random() //Первая кость
     val randDice2 = (1..6).random() //Вторая кость
     val diceSum = randDice1 + randDice2
@@ -34,14 +34,14 @@ fun diceTurn(): Int? {
 fun roundNum(human: Int, machine: Int): Boolean.Companion {
     var counter = 0 //Счётчик победы человека
     do {
-        if (human!! > machine!!) {
+        if (human > machine) {
             println("Человечество победило")
             counter++
         } else {
             println("Победила машина")
         }
         println("Хотите бросить кости ещё раз? Введите да или нет")
-        var tryAgain: String = readLine()!!
+        val tryAgain: String = readLine()!!
     } while (tryAgain == "да")
     println("Количество партий, выигранных человеком: $counter")
     return Boolean
