@@ -14,11 +14,12 @@ fun main() {
     val userLen = readLine()!!.toInt()
     val randomPas = getRandomString(userLen)
     println(randomPas)
+
 }
 
 
 fun getRandomString(length: Int): String {
-    val charset =  (('0'..'9') + ("!@#$%^&*()<>-{}[]<>`~:;№=+*/")).toString()
+    val charset =  (('0'..'9') + ("!@#$%^&*()<>-{}[]<>`~:;№=+*/")).joinToString("")
     return (1..length)
         .map { charset.random() }
         .joinToString("")
