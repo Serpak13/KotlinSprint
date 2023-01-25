@@ -20,10 +20,9 @@ fun main() {
 
 //Функция проверки логина и пароля
 
-fun validateLogAndPassLength(logLen: String, passLen: String): Boolean.Companion {
+fun validateLogAndPassLength(logLen: String, passLen: String) {
     if (logLen.length > 4 && passLen.length > 4) {
         println("Добро пожаловать!")
     } else println("Логин или пароль недостаточно длинные !")
 
-    return Boolean
 }
