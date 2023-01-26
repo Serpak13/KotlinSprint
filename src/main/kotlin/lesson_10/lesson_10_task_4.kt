@@ -11,13 +11,23 @@ package lesson_10
 // – программа в зависимости от ответа запускает новый раунд или заканчивает игру с выводом количества выйгрышных партий человека;
 // – в программе должно быть минимум 2 метода (для проведения раунда и для генерации значений брошенных кубиков).
 fun main() {
-
-    do { println("Кости бросил игрок")
-       val humanTurn = diceTurn()
-       println("Кости бросил компьютер")
-       val machineTurn = diceTurn()
-       roundNum(human = humanTurn, machine = machineTurn)
-    }while (true)
+    var counter = 0 // подсчёт побед человека
+    do {
+        println("Кости бросил игрок")
+        val humanTurn = diceTurn()
+        println("Кости бросил компьютер")
+        val machineTurn = diceTurn()
+        roundNum(human = humanTurn, machine = machineTurn)
+        if(humanTurn > machineTurn){
+            counter++
+        }
+        println("Хотите сыграть ещё раз. Введите ДА или НЕТ")
+        val userInput = readLine()
+        /*if(userInput == "нет"){
+            println("Количество партий, выигранных человеком: $counter")
+        }*/
+    } while (userInput == "да")
+    println("Количество партий, выигранных человеком: $counter")
 
 }
 
@@ -31,18 +41,25 @@ fun diceTurn(): Int {
 }
 
 //Функция для проведения раундов
-fun roundNum(human: Int, machine: Int): Boolean.Companion {
-    var counter = 0 //Счётчик победы человека
-    do {
-        if (human > machine) {
-            println("Человечество победило")
-            counter++
-        } else {
-            println("Победила машина")
-        }
-        println("Хотите бросить кости ещё раз? Введите да или нет")
-        val tryAgain: String = readLine()!!
-    } while (tryAgain == "да")
-    println("Количество партий, выигранных человеком: $counter")
-    return Boolean
+fun roundNum(human: Int, machine: Int): String.Companion {
+
+    if (human > machine) {
+        println("Человечество победило")
+    } else {
+        println("Победила машина")
+    }
+    return String
 }
+/* var counter = 0 //Счётчик победы человека
+ do {
+     if (human > machine) {
+         println("Человечество победило")
+         counter++
+     } else {
+         println("Победила машина")
+     }
+     println("Хотите бросить кости ещё раз? Введите да или нет")
+     val tryAgain: String = readLine()!!
+ } while (tryAgain == "да")
+ println("Количество партий, выигранных человеком: $counter")
+ return Boolean */
