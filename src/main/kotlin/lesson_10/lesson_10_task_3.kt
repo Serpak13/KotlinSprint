@@ -16,8 +16,6 @@ fun main() {
     println(randomPas)
 
 }
-
-
 fun getRandomString(length: Int): String {
     val charset =  (('0'..'9') + ("!@#$%^&*()<>-{}[]<>`~:;№=+*/")).joinToString("")
     return (1..length)
