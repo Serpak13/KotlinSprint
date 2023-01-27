@@ -62,7 +62,7 @@ fun validateLogLength(logLen: String): Boolean.Companion {
 // ГЕНЕРАЦИЯ ПАРОЛЯ
 
 fun getRandomPassword(): String {
-    val charset =  (('0'..'9') + ("!@#$%^&*()<>-{}[]<>`~:;№=+*/") + ('a'.. 'z') + ('A'..'Z')).toString()
+    val charset =  (('0'..'9') + ("!@#$%^&*()<>-{}[]<>`~:;№=+*/") + ('a'.. 'z') + ('A'..'Z')).joinToString("")
     return (1..10)
         .map { charset.random() }
         .joinToString("")
