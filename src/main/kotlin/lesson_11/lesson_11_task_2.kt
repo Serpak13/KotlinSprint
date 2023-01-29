@@ -33,21 +33,21 @@ fun main() {
         message = " "
     )
     //Пользователь 1
-    user1.userInformation()
-    user1.userBio()
+    user1.printUserInfo()
+    user1.setUserBio()
     println(user1.bio)
-    user1.userPassword()
+    user1.changeUserPassword()
     println("Ваш пароль: ${user1.password}")
-    user1.sendMail()
+    user1.sendMessageUser()
     println("У вас новое сообщение: ${user1.message}")
 
     //Пользователь 2
-    user2.userInformation()
-    user2.userBio()
+    user2.printUserInfo()
+    user2.setUserBio()
     println(user2.bio)
-    user2.userPassword()
+    user2.changeUserPassword()
     println("Ваш пароль: ${user2.password}")
-    user2.sendMail()
+    user2.sendMessageUser()
     println("У вас новое сообщение: ${user2.message}")
 
 }
@@ -62,20 +62,20 @@ class User(
     var bio: String,
     var message : String, // получаемое сообщение
 ) {
-    fun userInformation() {  //Информация о пользователе
+    fun printUserInfo() {  //Информация о пользователе
         println(id)
         println(login)
         println(password)
         println(mail)
     }
 
-    fun userBio() {                       //БИО
+    fun setUserBio() {                       //БИО
         println("Расскажите о себе")
         bio = readLine().toString()
 
     }
 
-    fun userPassword() {                    //Изменение пароля
+    fun changeUserPassword() {                    //Изменение пароля
         println("Введите текущий папроль, чтобы его изменить")
         val insert = readLine()
         if (insert == password) {
@@ -87,7 +87,7 @@ class User(
         }
     }
 
-    fun sendMail() {                            //Отправка сообщения
+    fun sendMessageUser() {                            //Отправка сообщения
         println("Введите сообщение, которое хотите отправить на почту")
         message = readLine().toString()
     }
