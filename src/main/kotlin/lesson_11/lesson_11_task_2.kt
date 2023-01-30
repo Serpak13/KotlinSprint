@@ -21,7 +21,6 @@ fun main() {
         password = "Jarvis",
         mail = "ironman@shield.com",
         bio = " ",
-        message = " "
     )
 
     val user2 = User(
@@ -30,9 +29,9 @@ fun main() {
         password = "PointBreak",
         mail = "godofasgard@shield.com",
         bio = " ",
-        message = " "
     )
     //Пользователь 1
+    println("Пользователь №1.")
     user1.printUserInfo()
     user1.setUserBio()
     println(user1.bio)
@@ -40,8 +39,10 @@ fun main() {
     println("Ваш пароль: ${user1.password}")
     user1.sendMessageUser()
     println("У вас новое сообщение: ${user1.message}")
+    println()
 
     //Пользователь 2
+    println("Пользователь №2.")
     user2.printUserInfo()
     user2.setUserBio()
     println(user2.bio)
@@ -60,7 +61,7 @@ class User(
     var password: String,
     val mail: String,
     var bio: String,
-    var message : String, // получаемое сообщение
+    var message :String = "", // получаемое сообщение
 ) {
     fun printUserInfo() {  //Информация о пользователе
         println(id)
