@@ -14,53 +14,53 @@ package lesson_11
 //
 //После проектирования создай список объектов карточек с несколькими “комнатами” с произвольными данными.
 fun main() {
-    val user1 = Users(
+    val user1 = User(
         avatarUser = "Photo1",
-        nickName = "Visaraner",
+        nickName = "Visaruner",
         userStatus = "Разговаривает",
     )
 
-    val user2 = Users(
+    val user2 = User(
         avatarUser = "Photo2",
         nickName = "Careerist",
         userStatus = "Микрофон выключен",
     )
 
-    val user3 = Users(
+    val user3 = User(
         avatarUser = "Photo3",
         nickName = "Funy",
         userStatus = "Пользователь заглушён",
     )
-    val room1 = Rooms(
+    val room1 = Room(
         cover = "Car",
         title = "Visarun",
-        listParticipants = listOf(user1.nickName)
+        listParticipants = listOf(user1.nickName, user2.nickName, user3.nickName)  //Список пользователей
     )
 
-    val room2 = Rooms(
+    val room2 = Room(
         cover = "Work",
         title = "HeadHunter",
-        listParticipants = listOf(user2.nickName)
+        listParticipants = listOf(user1.nickName, user2.nickName, user3.nickName) //Список пользователей
     )
 
-    val room3 = Rooms(
+    val room3 = Room(
         cover = "Balloons",
         title = "Hobby",
-        listParticipants = listOf(user3.nickName)
+        listParticipants = listOf(user1.nickName, user2.nickName, user3.nickName) //Список пользователей
     )
 
-    val listRooms = listOf<String>(room1.title, room2.title, room3.title)
-    println("Список комнат: $listRooms")
+    val rooms = listOf<String>(room1.title, room2.title, room3.title)
+    println("Список комнат: $rooms")
 }
 
-class Rooms(   //Комнаты
+class Room(   //Комната (класс/сущность)
     val cover: String,  //Обложка
     val title: String,  // Название комнаты
     val listParticipants: List<String>, //Список участников в виде аватарок
 
 )
 
-class Users( //Пользователи
+class User( //Пользователь (класс/сущность)
     val avatarUser : String, //Аватар пользователя
     val nickName: String,   // Никнейм пользователя
     val userStatus: String // Статус пользователя
