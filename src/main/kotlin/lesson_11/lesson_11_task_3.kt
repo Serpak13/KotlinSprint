@@ -34,34 +34,43 @@ fun main() {
     val room1 = Room(
         cover = "Car",
         title = "Visarun",
-        listParticipants = listOf(user1.nickName, user2.nickName, user3.nickName)  //Список пользователей
+        listParticipants = listOf(user1, user2, user3)  //Список пользователей
     )
 
     val room2 = Room(
         cover = "Work",
         title = "HeadHunter",
-        listParticipants = listOf(user1.nickName, user2.nickName, user3.nickName) //Список пользователей
+        listParticipants = listOf(user1, user2, user3)  //Список пользователей
     )
 
     val room3 = Room(
         cover = "Balloons",
         title = "Hobby",
-        listParticipants = listOf(user1.nickName, user2.nickName, user3.nickName) //Список пользователей
+        listParticipants = listOf(user1, user2, user3)  //Список пользователей
     )
 
-    val rooms = listOf<String>(room1.title, room2.title, room3.title)
+    val rooms: List<Room> = listOf(room1, room2, room3)
     println("Список комнат: $rooms")
+    val userList: List<User> = listOf(user1, user2, user3)
+    println("Список пользователей:$userList")
+
 }
 
-class Room(   //Комната (класс/сущность)
+data class Room(
+    //Комната (класс/сущность)
     val cover: String,  //Обложка
     val title: String,  // Название комнаты
-    val listParticipants: List<String>, //Список участников в виде аватарок
+    val listParticipants: List<User>, //Список участников в виде аватарок
 
 )
+
 
 class User( //Пользователь (класс/сущность)
-    val avatarUser : String, //Аватар пользователя
+    val avatarUser: String, //Аватар пользователя
     val nickName: String,   // Никнейм пользователя
     val userStatus: String // Статус пользователя
-)
+) {
+    override fun toString(): String {
+        return "User(avatarUser='$avatarUser', nickName='$nickName', userStatus='$userStatus')"
+    }
+}
