@@ -6,16 +6,16 @@ package lesson_12
 
 fun main() {
 
-    val mondayWeather = Weather("+15", "-2", "Идёт дождь")
-    println("Погода в понедельник")
-    mondayWeather.dataWeather()
+    val tuesdayWeather = WeatherNew("+15", "-2", "Идёт дождь")
+    println("Погода во вторник")
+    tuesdayWeather.dataWeather()
     println()
-    val sundayWeather = Weather("+20", "+10", "Дождя нет")
-    println("Погода в воскресенье")
-    sundayWeather.dataWeather()
+    val wednesdayWeather = WeatherNew("+20", "+10", "Дождя нет")
+    println("Погода в среду")
+    wednesdayWeather.dataWeather()
 }
 
-class Weather(_tempDay: String, _tempNight: String, _isRaining: String) {
+class WeatherNew(_tempDay: String, _tempNight: String, _isRaining: String) {
     var tempDay = _tempDay
     var tempNight = _tempNight
     var isRaining = _isRaining
