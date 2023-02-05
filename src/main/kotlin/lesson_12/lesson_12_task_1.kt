@@ -12,23 +12,23 @@ package lesson_12
 fun main() {
 
     val mondayWeather = Weather()
-    mondayWeather.tempDay = "+10"
-    mondayWeather.tempNight = "+1"
+    mondayWeather.tempDay = 10.0
+    mondayWeather.tempNight = 1.0
     mondayWeather.isRaining = "Дождя нет"
     println("Погода в понедельник")
     mondayWeather.dataWeather()
     println()
     val sundayWeather = Weather()
-    sundayWeather.tempDay = "+5"
-    sundayWeather.tempNight = "-3"
+    sundayWeather.tempDay = 5.0
+    sundayWeather.tempNight = -3.0
     sundayWeather.isRaining = "Идёт дождь"
     println("Погода в воскресенье")
     sundayWeather.dataWeather()
 }
 
-class Weather() {
-    var tempDay = "+4"
-    var tempNight = "-1"
+class Weather {
+    var tempDay = 4.0
+    var tempNight = -1.0
     var isRaining = "Дождя нет"
 
     fun dataWeather() {
