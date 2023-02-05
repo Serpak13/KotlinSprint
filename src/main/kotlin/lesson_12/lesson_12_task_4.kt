@@ -11,7 +11,7 @@ fun main() {
 
 }
 
-class WeatherDay(var dayOfTheWeek: String, var tempDay: Double, var tempNight: Double, var isRaining: String = "Идёт дождь") {
+class WeatherDay(dayOfTheWeek: String, tempDay: Double, tempNight: Double, var isRaining: String = "Идёт дождь") {
     init{
         println("Сегодня: $dayOfTheWeek")
         println("Погода днём $tempDay градусов по цельсию")
