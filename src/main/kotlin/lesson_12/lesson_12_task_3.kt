@@ -7,19 +7,24 @@ package lesson_12
 // Информацию о погоде по дням выведи в консоль отдельным методом класса.
 fun main() {
 
-    val monday = WeatherDay("Понедельник", 4.0 , 15.0)
-    val tuesday = WeatherDay("Вторник", -1.0, 5.0, "Дождя нет")
-    monday.dataWeather()
+    val monday = WeatherDayInform("Понедельник", 4.0, 15.0)
+    val tuesday = WeatherDayInform("Вторник", -1.0, 5.0, true)
+    monday.dataWeatherPrint()
     println()
-    tuesday.dataWeather()
+    tuesday.dataWeatherPrint()
 }
 
-class WeatherDay(var dayOfTheWeek: String, var tempDay: Double, var tempNight: Double, var isRaining: String = "Идёт дождь") {
-    fun dataWeather() {
+class WeatherDayInform(
+    var dayOfTheWeek: String,
+    var tempDay: Double,
+    var tempNight: Double,
+    var isRaining: Boolean = false
+) {
+    fun dataWeatherPrint() {
         println("Сегодня: $dayOfTheWeek")
         println("Погода днём $tempDay градусов по цельсию")
         println("Погода ночью $tempNight градусов по цельсию")
-        println("Осадки: $isRaining")
+        println("Идёт ли дождь: $isRaining")
     }
 
 }
