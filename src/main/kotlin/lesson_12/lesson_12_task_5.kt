@@ -1,7 +1,7 @@
 package lesson_12
 
-import java.util.concurrent.ThreadLocalRandom
 
+import kotlin.random.Random
 //Задача 5 к Уроку 12
 //
 //Продолжи усовершенствовать программу, теперь она должна рассчитывать средние значения температур и давления,
@@ -16,9 +16,9 @@ fun main() {
 
     for (i in 1..10) {
         val weatherDayData = WeatherDay(
-            (ThreadLocalRandom.current().nextFloat(-10.0f, 35.0f)),
-            ThreadLocalRandom.current().nextFloat(-10.0f, 35.0f),
-            ThreadLocalRandom.current().nextBoolean(),
+            ((-5..20).random() + Random.nextFloat()),
+            ((-5..20).random() + Random.nextFloat()),
+            Random.nextBoolean(),
             (747..755).random(), (756..765).random()
         )
         weatherList += weatherDayData
@@ -43,7 +43,7 @@ fun main() {
 
     var rainDay = 0
     for(i in weatherList){  //Подсчёт дождливых дней
-        if(i.isRaining == true){
+        if(i.isRaining){
             rainDay += 1
         }
     }
