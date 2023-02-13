@@ -16,7 +16,7 @@ fun main() {
 }
 
 fun addingInformationToDirectory() {
-    var contactsListNew: List<PhoneDirectoryNew> = mutableListOf()
+    val contactsListNew: MutableList<PhoneDirectoryNew> = mutableListOf()
     do {
         println("Введите имя контакта")
         val newName = readLine()?.takeIf { it.isNotEmpty() } ?: "Не указано"
@@ -24,20 +24,20 @@ fun addingInformationToDirectory() {
         val newTelephoneNumber = readLine()?.takeIf { it.isNotEmpty() } ?: "Не указано"
         println("Введите название компании")
         val newCompanyName = readLine()?.takeIf { it.isNotEmpty() } ?: "Не указано"
-        val newContacts = PhoneDirectoryNew(nameContacts =  newName, telephoneNumber = newTelephoneNumber, nameCompany = newCompanyName)
-        contactsListNew += newContacts
+        val newContact = PhoneDirectoryNew(nameContact =  newName, telephoneNumber = newTelephoneNumber, nameCompany = newCompanyName)
+        contactsListNew.add(newContact)
         println("Хотите добавить ещё один контакт? Введите \"да\" или \"нет\"")
         val answerUser = readLine()!!
     } while (answerUser == "да")
 
     for(i in contactsListNew){
-        println("Имя контакта: ${i.nameContacts}")
+        println("Имя контакта: ${i.nameContact}")
         println("Номер телефона: ${i.telephoneNumber}")
         println("Название компании: ${i.nameCompany}")
         println()
     }
 }
-data class PhoneDirectoryNew(var nameContacts: String?, var telephoneNumber: String?, var nameCompany: String?) {
+data class PhoneDirectoryNew(var nameContact: String?, var telephoneNumber: String?, var nameCompany: String?) {
 }
 
 
