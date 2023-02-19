@@ -13,54 +13,28 @@ package lesson_14
 // с какой скоростью движется, сколько перевозит ящиков груза;
 // – выведи информацию о свойствах кораблей в консоль.
 fun main() {
-    val ship1 = ClassicShip("Беда", 50, 25)
+    val ship1 = ClassicShip1("Беда", 50, 25, "Обычный корабль")
     ship1.aboutShip()
     println()
-    val iceBreaker1 = IceBreaker("Sub-Zero", 25, 10, "Ледокол")
-    iceBreaker1.InformAboutIceBreaker()
+    val iceBreaker1 = ClassicShip1("Sub-Zero", 25, 10, "Ледокол")
+    iceBreaker1.aboutShip()
     println()
-    val cargoShip1 = CargoShip("Лютый", 30, 50, 15000)
-    cargoShip1.tonnageInform()
+    val cargoShip1 = ClassicShip1("Верзила", 15, 45, "Грузовой корабль")
+    cargoShip1.aboutShip()
+
 }
 
-open class ClassicShip(
+open class ClassicShip1(
     val name: String,   //название
     val speed: Int,     // скорость
     val capacity: Int, //Вместимость
+    val propertyShip: String, //Свойство корабля
 ){
     fun aboutShip(){
         println("Название: $name")
-        println("Тип: Обычный корабль")
         println("Скорость: $speed км/ч")
         println("Вместимость: $capacity м.куб")
+        println("Тип: $propertyShip")
     }
 }
 
-class IceBreaker(       //Ледокол
-    name: String,
-    speed: Int,
-    capacity: Int,  // Вместимость
-    val specialAbilities: String,  //Спец Способность (колоть лёд)
-):ClassicShip(name, speed, capacity) {
-    fun InformAboutIceBreaker(){
-        println("Название: $name")
-        println("Скорость: $speed км/ч")
-        println("Вместимость: $capacity м.куб")
-        println("Тип корабля: $specialAbilities")
-    }
-}
-
-class CargoShip(          //Грузовой корабль
-    name: String,
-    speed: Int,
-    capacity: Int,
-    val tonnage: Int,  //Грузоподъёмность (не путать с вместимостью)
-):ClassicShip(name, speed, capacity){
-
-    fun tonnageInform(){
-        println("Название: $name")
-        println("Скорость: $speed км/ч")
-        println("Вместимость: $capacity м.куб")
-        println("Грузоподъёмность корабля: $tonnage кг.")
-    }
-}
