@@ -12,13 +12,11 @@ fun main() {
     val satellite1 = Satellite("Спутник",15,"Солнечная система", "Фобос", 27,355)
     val satellite2 = Satellite("Спутник",15,"Солнечная система", "Деймос", 29,156)
     planet1.informationAboutObjectSpace()
-    planet1.informationAboutPlanet()
     println()
     satellite1.informationAboutObjectSpace()
-    satellite1.informationAboutSatellite()
     println()
     satellite2.informationAboutObjectSpace()
-    satellite2.informationAboutSatellite()
+
 }
 
 open class ObjectSpace(
@@ -27,7 +25,7 @@ open class ObjectSpace(
     val movementSpeed: Int,  //Скорость передвижения
     val location: String,  //Местоположения
     ) {
-    fun informationAboutObjectSpace(){
+    open fun informationAboutObjectSpace(){
         println("Тип небесного тела: $typeObjectSpace\nСкорость передвижения: $movementSpeed км/сек\nМестоположения: $location")
     }
 }
@@ -43,7 +41,8 @@ class Planet( //Планета
     val possibilityOfLanding: Boolean = false,  //возможность посадки
     val haveSatellite: Boolean = false, //Наличие спутника
 ): ObjectSpace(typeObjectSpace, movementSpeed, location) {
-    fun informationAboutPlanet(){
+    override fun informationAboutObjectSpace(){
+        super.informationAboutObjectSpace()
         println("Название планеты: $namePlanet\nНаличие атмосферы: $atmosphere\nНаличие воды: $water\nПригодность для жилья: $habitable\n" +
                 "Возможность посадки: $possibilityOfLanding\nНаличие спутника: $haveSatellite")
 
@@ -58,7 +57,8 @@ class Satellite( //Спутник
     val periodOfCirculation: Int,  //Период вращения вокруг планеты
     val orbitRadius: Int,   //Радиус орбиты
 ): ObjectSpace(typeObjectSpace, movementSpeed, location) {
-    fun informationAboutSatellite(){
+    override fun informationAboutObjectSpace(){
+        super.informationAboutObjectSpace()
         println("Имя спутника: $nameSatellite\nПериод вращения вокруг планеты: $periodOfCirculation в сутках\nРадиус орбиты:$orbitRadius тыс.км")
     }
 }
