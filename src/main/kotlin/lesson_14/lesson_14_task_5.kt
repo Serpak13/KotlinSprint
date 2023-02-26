@@ -24,30 +24,16 @@ import kotlin.math.pow
 //
 // – вызови эти два метода с массивом созданных объектов фигур  и выведи результат в консоль.
 fun main() {
+    //Круги
     val circle1 = Circle("Красный", 10.0)
-    circle1.calculationArea()
-    circle1.calculationPerimetr()
-    println()
     val circle2 = Circle("Зелёный", 7.5)
-    circle2.calculationArea()
-    circle2.calculationPerimetr()
-    println()
+    //Прямоугольники
     val rectangle1 = Rectangle("Чёрный", 5.5, 10.0)
-    rectangle1.calculationArea()
-    rectangle1.calculationPerimetr()
-    println()
     val rectangle2 = Rectangle("Красный", 6.0, 7.0)
-    rectangle2.calculationArea()
-    rectangle2.calculationPerimetr()
-    println()
+    //Треугольники
     val triangle1 = Triangle("Зелёный", 4.0, 1.5, 5.0)
-    triangle1.calculationArea()
-    triangle1.calculationPerimetr()
-    println()
     val triangle2 = Triangle("Чёрный", 4.7, 5.1, 9.0)
-    triangle2.calculationArea()
-    triangle2.calculationPerimetr()
-
+    //Список фигур
     val listFigure: List<Figure> = mutableListOf<Figure>(circle1, circle2, rectangle1, rectangle2, triangle1, triangle2)
 
     redFigureSumArea(listFigure)
