@@ -12,20 +12,22 @@ fun main() {
     musicalInstrument1.productInformation()
     musicalInstrument1.findStuff()
     accessory1.productInformation()
-    accessory1.findStuff()
+
 
 }
 
-abstract class MusicalStuff : FindStuff {
+abstract class MusicalStuff {
     abstract val category: String
+    abstract val name: String
+    abstract val quantity: Int
     abstract fun productInformation()
 }
 
 class MusicalInstrument(
     override val category: String,
-    val name: String,
-    val quantity: Int,
-) : MusicalStuff() {
+    override val name: String,
+    override val quantity: Int,
+) : MusicalStuff(), FindStuff {
     override fun productInformation() {
         println("Категория товара: $category\nНаименование: $name\nКоличество на складе: $quantity шт.")
     }
@@ -33,8 +35,8 @@ class MusicalInstrument(
 
 class Accessory(
     override val category: String,
-    val name: String,
-    val quantity: Int,
+    override val name: String,
+    override val quantity: Int,
 ) : MusicalStuff() {
     override fun productInformation() {
         println("Категория товара: $category\nНаименование: $name\nКоличество на складе: $quantity шт.")
