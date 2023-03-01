@@ -14,38 +14,30 @@ fun main() {
     val gull1 = Bird("Чайка")
     val duck1 = Bird("Утка")
     crucian1.movementMethodWater()
-    crucian1.flyMethod()
     gull1.flyMethod()
-    gull1.movementMethodWater()
     duck1.flyMethod()
-    duck1.movementMethodWater()
+
 
 
 }
 
-abstract class Animal: MovementableWater, Flyable{
+abstract class Animal{
     abstract  val name: String //Название животного
 }
 
 class Fish(
     override val name: String
-): Animal() {
+): Animal(), MovementableWater {
 
     override fun movementMethodWater() {
-        println("$name передвигается в воде за счёт плавников и хваста")
+        println("$name передвигается в воде за счёт плавников и хвоста")
     }
 
-    override fun flyMethod() {
-        println("$name не летает")
-    }
 }
 
 class Bird(
     override val name: String
-): Animal(){
-    override fun movementMethodWater() {
-        println("Туловище $name немного сплюснуто. За счет этого птица способна удерживаться на плаву. Также птица отличается тем, что её кости – полые, легкие.")
-    }
+): Animal(), Flyable{
 
     override fun flyMethod() {
         println("$name передвигается по воздуху за счёт крыльев")
@@ -59,3 +51,4 @@ interface MovementableWater {
 interface Flyable{
     fun flyMethod()
 }
+
