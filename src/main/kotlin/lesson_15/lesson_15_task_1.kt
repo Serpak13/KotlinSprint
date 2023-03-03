@@ -15,7 +15,9 @@ fun main() {
     val duck1 = Bird("Утка")
     crucian1.movementMethodWater()
     gull1.flyMethod()
+    gull1.movementMethodWater()
     duck1.flyMethod()
+    duck1.movementMethodWater()
 
 
 
@@ -37,10 +39,14 @@ class Fish(
 
 class Bird(
     override val name: String
-): Animal(), Flyable{
+): Animal(), Flyable, MovementableWater{
 
     override fun flyMethod() {
         println("$name передвигается по воздуху за счёт крыльев")
+    }
+
+    override fun movementMethodWater() {
+        println("$name может плавать благодаря малой плотности (оперение, воздушные мешки)")
     }
 }
 
