@@ -8,17 +8,14 @@ package lesson_16
 fun main() {
 
     val user1 = User("Johny", "qwerty")
-    user1.checkPassword()
+    println("Введите пароль")
+    val inputPassword = readLine()
+    val resultCheck = user1.checkPassword(inputPassword.toString())
+    println(resultCheck)
 
 }
-
-class User(val loginUser: String, private val passwordUser: String){
-
-
-
-    fun checkPassword(){
-        println("Введите пароль")
-        if(readLine() == passwordUser) println("Пароль введён верно")
-        else println("Пароль введён неверно")
+class User(val loginUser: String, private val passwordUser: String) {
+    fun checkPassword(inputPassword: String): Boolean {
+        return inputPassword == passwordUser
     }
 }
