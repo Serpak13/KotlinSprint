@@ -7,15 +7,16 @@ package lesson_16
 // Выведи информацию о релевантности пароля в консоль.
 fun main() {
 
-    val user1 = User("Johny")
-    user1.checkPasword()
+    val user1 = User("Johny", "qwerty")
+    user1.checkPassword()
+
 }
 
-class User(val loginUser: String){
+class User(val loginUser: String, private val passwordUser: String){
 
-    private val passwordUser = "qwerty"
 
-    fun checkPasword(){
+
+    fun checkPassword(){
         println("Введите пароль")
         if(readLine() == passwordUser) println("Пароль введён верно")
         else println("Пароль введён неверно")
