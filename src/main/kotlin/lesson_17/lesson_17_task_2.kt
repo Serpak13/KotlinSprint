@@ -13,6 +13,8 @@ fun main() {
     ship1.name = "Каракатица"
     println(ship1.name)
 
+    ship1.infoAboutShip()
+
 }
 
 class Ship(private val nameShip: String, val averageSpeed: Int, val port: String){
@@ -21,5 +23,11 @@ class Ship(private val nameShip: String, val averageSpeed: Int, val port: String
         set(value: String){
             println("Вы не можете изменить имя корабля")
         }
+
+    fun infoAboutShip(){
+        println("Имя корабля: $nameShip")
+        println("Средняя скорость: $averageSpeed")
+        println("Порт приписки: $port")
+    }
 
 }
