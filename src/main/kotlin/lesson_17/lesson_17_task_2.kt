@@ -11,20 +11,16 @@ fun main() {
 
     println(ship1.name)
     ship1.name = "Каракатица"
-    println(ship1.name)
-
     ship1.infoAboutShip()
 
 }
 
-class Ship(private val nameShip: String, val averageSpeed: Int, val port: String){
+class Ship(private val nameShip: String, val averageSpeed: Int, val port: String) {
     var name = nameShip
-        get() = field
-        set(value: String){
-            println("Вы не можете изменить имя корабля")
-        }
+        set(value) = println("Вы не можете изменить имя корабля на $value")
 
-    fun infoAboutShip(){
+
+    fun infoAboutShip() {
         println("Имя корабля: $nameShip")
         println("Средняя скорость: $averageSpeed")
         println("Порт приписки: $port")
