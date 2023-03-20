@@ -11,22 +11,13 @@ package lesson_17
 fun main() {
     val folder1 = Folder("Схемы", 20, false)
     val folder2 = Folder("Сметы", 15, true)
-
-    folder1.infoAboutFolder()
-    folder2.infoAboutFolder()
+    println(folder1.name)
+    println(folder2.name)
 
 }
 
 class Folder(private var nameFolder: String, private val quantityOfFiles: Int, val secret: Boolean) {
 
     var name = nameFolder
-        get() = if (secret) "Скрытая папка" else field
-    var quantity = quantityOfFiles
-        get() = if(secret) 0 else field
-
-    fun infoAboutFolder(){
-        println("Имя папки: $name")
-        println("Количество файлов: $quantity")
-    }
-
+        get() = if (secret) "Скрытая папка, количество файлов - 0" else field
 }
