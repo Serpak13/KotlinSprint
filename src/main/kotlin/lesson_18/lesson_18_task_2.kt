@@ -6,9 +6,9 @@ package lesson_18
 //В игре используются игральные кости с разным количеством граней: 4, 6 и 8.
 // Опиши их, используя полиморфизм, создав несколько классов. У каждой кости должен быть метод, печатающий в консоль выпавшее число.
 fun main() {
-    val cube1: Cube = Tetrahedron()
-    val cube2: Cube = Hexagon()
-    val cube3: Cube = Octahedron()
+    val cube1: Dice = Tetrahedron()
+    val cube2: Dice = Hexagon()
+    val cube3: Dice = Octahedron()
     cube1.trowCube()
     println()
     cube2.trowCube()
@@ -17,25 +17,28 @@ fun main() {
 
 }
 
-abstract class Cube(val dice: Int) {
+abstract class Dice(val  faces: Int) {
     abstract fun trowCube()
 }
 
-class Tetrahedron: Cube(4) {
+class Tetrahedron: Dice(4) {
     override fun trowCube() {
-        println("Бросок кубика с количеством граней $dice. Выпавшее число - ${(1..dice).random()}")
+        val number = (1..faces).random()
+        println("Бросок кубика с количеством граней $faces. Выпавшее число - $number")
     }
 }
 
-class Hexagon: Cube(6) {
+class Hexagon: Dice(6) {
     override fun trowCube() {
-        println("Бросок кубика с количеством граней $dice. Выпавшее число - ${(1..dice).random()}")
+        val number = (1..faces).random()
+        println("Бросок кубика с количеством граней $faces. Выпавшее число - $number")
     }
 }
 
-class Octahedron: Cube(8) {
+class Octahedron: Dice(8) {
     override fun trowCube() {
-        println("Бросок кубика с количеством граней $dice. Выпавшее число - ${(1..dice).random()}")
+        val number = (1..faces).random()
+        println("Бросок кубика с количеством граней $faces. Выпавшее число - $number")
     }
 }
 
