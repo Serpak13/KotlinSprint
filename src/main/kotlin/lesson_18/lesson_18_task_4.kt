@@ -8,10 +8,10 @@ package lesson_18
 //Если посылка прямоугольная, она должна создаваться с длиной, шириной и высотой. Если посылка – куб, то только с длиной ребра.
 fun main() {
 
-    val recPackage: RectanglePackage = RectanglePackage("Прямоугольная", 8,9,1)
+    val recPackage: Package = RectanglePackage("Прямоугольная", 8,9,1)
     recPackage.area()
     println()
-    val cubePackage: CubePackage = CubePackage("Кубическая",2)
+    val cubePackage: Package = CubePackage("Кубическая",2)
     cubePackage.area()
 }
 
@@ -26,7 +26,7 @@ class RectanglePackage(
     private val height: Int,
 ): Package() {
     override fun area() {
-        val areaReactangle = ((length * height)*2) + ((width * height)*2) + ((length * width)*2)
+        val areaReactangle = ((length * height) + (width * height) + (length * width)) * 2
         println("Тип посылки: $type\nПлощадь поверхности посылки: $areaReactangle")
     }
 }
