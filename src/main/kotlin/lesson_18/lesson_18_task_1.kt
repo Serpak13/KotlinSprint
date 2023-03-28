@@ -10,26 +10,28 @@ package lesson_18
 // Создай 2 объекта заказа и вызови у них метод вывода информации и заказе. Реши задачу, используя полиморфизм.
 fun main() {
 
-    val order1 = Order()
-    val order2 = Order()
+    val order1: Order = OneOrder(5, "Бумага")
+    val order2: Order = ListOrder(8, listOf("точилка", "ручка", "транспортир"))
 
-    order1.orderInfo(1, "Тубус")
-    order2.orderInfo(2, listOf("точилка", "ручка", "транспортир"))
+    order1.getOrderInfo()
+    order2.getOrderInfo()
 }
 
-class Order{
-    fun orderInfo(
-        numberOfOrder: Int,
-        nameProduct: String
-    ){
-        println("Номер заказа $numberOfOrder. Заказан товар: $nameProduct")
-    }
-
-    fun orderInfo(
-        numberOfOrder: Int,
-        nameProduct: List<String>
-    ){
-        println("Номер заказа $numberOfOrder. Заказаны следующие товары: $nameProduct")
-    }
+open class Order{
+    open fun getOrderInfo() = " "
 
 }
+
+class OneOrder(val numberOfOrder: Int, val nameProduct: String): Order(){
+    override fun getOrderInfo(): String {
+        return "Номер заказа $numberOfOrder. Заказан товар: $nameProduct"
+    }
+}
+
+class ListOrder(val numberOfOrder: Int, val nameProduct: List<String>): Order(){
+
+    override fun getOrderInfo(): String {
+        return "Номер заказа $numberOfOrder. Заказан товар: $nameProduct"
+    }
+}
+
