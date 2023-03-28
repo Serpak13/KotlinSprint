@@ -13,8 +13,8 @@ fun main() {
     val order1: Order = OneOrder(5, "Бумага")
     val order2: Order = ListOrder(8, listOf("точилка", "ручка", "транспортир"))
 
-    order1.getOrderInfo()
-    order2.getOrderInfo()
+    println(order1.getOrderInfo())
+    println(order2.getOrderInfo())
 }
 
 open class Order{
@@ -22,16 +22,16 @@ open class Order{
 
 }
 
-class OneOrder(val numberOfOrder: Int, val nameProduct: String): Order(){
+class OneOrder(private val numberOfOrder: Int, private val nameProduct: String): Order(){
     override fun getOrderInfo(): String {
         return "Номер заказа $numberOfOrder. Заказан товар: $nameProduct"
     }
 }
 
-class ListOrder(val numberOfOrder: Int, val nameProduct: List<String>): Order(){
+class ListOrder(private val numberOfOrder: Int, private val nameProduct: List<String>): Order(){
 
     override fun getOrderInfo(): String {
-        return "Номер заказа $numberOfOrder. Заказан товар: $nameProduct"
+        return "Номер заказа $numberOfOrder. Заказаны следующие товары: $nameProduct"
     }
 }
 
