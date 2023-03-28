@@ -9,38 +9,76 @@ package lesson_18
 //Напиши эти классы, используя полиморфизм и создай по одному экземпляру.
 fun main() {
 
-    val fox: Animal = Fox("Ягоды")
-    val dog: Animal = Dog("Кости")
-    val cat: Animal = Cat("Рыба")
-    fox.action()
-    dog.action()
-    cat.action()
+    val fox: Animal = Fox()
+    val dog: Animal = Dog()
+    val cat: Animal = Cat()
+    fox.animalPlay()
+    fox.animalSleep()
+    fox.animalEat()
+    println()
+    dog.animalPlay()
+    dog.animalSleep()
+    dog.animalEat()
+    println()
+    cat.animalPlay()
+    cat.animalSleep()
+    cat.animalEat()
+    println()
+
 }
 
-abstract class Animal(val name: String) {
-    abstract fun action()
+abstract class Animal() {
+    abstract fun animalPlay()
+    abstract fun animalSleep()
+    abstract fun animalEat()
+
 }
 
 class Fox(
-    private val food: String,
-): Animal("Лиса") {
-    override fun action() {
-        println("$name - ест $food")
+    private val name: String = "Лиса",
+): Animal() {
+    override fun animalPlay() {
+        println("$name играет в салочки")
     }
+    override fun animalSleep() {
+        println("$name спит в норе")
+    }
+    override fun animalEat() {
+        println("$name есть ягоды")
+    }
+
 }
 
 class Dog(
-    private val food: String,
-): Animal("Собака") {
-    override fun action() {
-        println("$name - ест $food")
+    private val name: String = "Собака",
+): Animal() {
+    override fun animalPlay() {
+        println("$name играет с мячиком")
     }
+
+    override fun animalSleep() {
+        println("$name спит в конуре")
+    }
+
+    override fun animalEat() {
+        println("$name есть кость")
+    }
+
 }
 
 class Cat(
-    private val food: String,
-): Animal("Кошка") {
-    override fun action() {
-        println("$name - ест $food")
+    private val name: String = "Кошка",
+): Animal() {
+    override fun animalPlay() {
+        println("$name играет с мышью")
     }
+
+    override fun animalSleep() {
+        println("$name спит в домике")
+    }
+
+    override fun animalEat() {
+        println("$name ест рыбу")
+    }
+
 }
