@@ -7,17 +7,11 @@ package lesson_19
 fun main() {
 
     println("Вы можете добавить в аквариум следующих рыб:")
-
-    for (i in Fish.values()){
-        println(i.nameFish)
-    }
-
-
+    for (i in Fish.values()) println(i.nameFish)
 }
-
-enum class Fish(val nameFish: String){
+enum class Fish(val nameFish: String) {
     GUPPY("Гуппи"),
-    ANGELFISH("Скалярия"),
-    GOLDFISH("Золотая рыбка"),
-    SIAMESFIGHTINGFISH("Петушок"),
+    ANGEL_FISH("Скалярия"),
+    GOLD_FISH("Золотая рыбка"),
+    SIAMES_FIGHTING_FISH("Петушок"),
 }
