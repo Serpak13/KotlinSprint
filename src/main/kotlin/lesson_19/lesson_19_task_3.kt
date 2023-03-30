@@ -15,17 +15,21 @@ fun main() {
     ship1.fireWeapon() // NotImplementedError.
 }
 
-class SpaceShip(val nameShip: String, val speedShip: Int, val presenceOfWeapons: Boolean){
+class SpaceShip(
+    val nameShip: String,
+    val speedShip: Int,
+    val presenceOfWeapons: Boolean,
+) {
 
-    fun actionFlayShip(){
+    fun actionFlayShip() {
         println("Корабль взлетел")
     }
 
-    fun landingShip(){
-        TODO("Необходимо прописать дополнительную логику")
+    fun landingShip() {
+        //TODO("Необходимо прописать дополнительную логику")
     }
 
-    fun fireWeapon(){
+    fun fireWeapon() {
         TODO()
     }
 }
