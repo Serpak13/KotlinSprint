@@ -15,18 +15,17 @@ fun main() {
     val product2 = ProductDescription("Степлер", 5896, Category.CHANCELLERY)
     val product3 = ProductDescription("Мочалка", 8526, Category.OTHER)
 
-    product1.getInfoAboutProduct()
+    println(product1.getInfoAboutProduct())
     println()
-    product2.getInfoAboutProduct()
+    println(product2.getInfoAboutProduct())
     println()
-    product3.getInfoAboutProduct()
+    println(product3.getInfoAboutProduct())
 }
 
 data class ProductDescription(val nameProduct: String, val id: Int, val category: Category) {
 
-    private val catProduct = getNameCategory(category)
-    fun getInfoAboutProduct() {
-        println("Название товара:$nameProduct\nАртикул товара:$id\nКатегория товара:$catProduct")
+    fun getInfoAboutProduct(): String {
+        return "Название товара:$nameProduct\nАртикул товара:$id\nКатегория товара:${getNameCategory(category)}"
     }
 }
 
@@ -35,10 +34,10 @@ enum class Category {
     CHANCELLERY,
     OTHER;
 }
-fun getNameCategory(category: Category) {
-    when (category) {
-        Category.CLOTHES -> println("Одежда")
-        Category.CHANCELLERY -> println("Канцелярия")
-        Category.OTHER -> println("Другое")
+fun getNameCategory(category: Category): String {
+   return when (category) {
+        Category.CLOTHES -> "Одежда"
+        Category.CHANCELLERY -> "Канцелярия"
+        Category.OTHER -> "Другое"
     }
 }
