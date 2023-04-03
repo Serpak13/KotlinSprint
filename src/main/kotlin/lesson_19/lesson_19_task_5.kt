@@ -14,7 +14,7 @@ fun main() {
 
     for (i in 1..5) {
         println("Введите имя")
-        val inputName: String = readlnOrNull().toString()
+        val inputName: String? = readlnOrNull()
         println("Введите пол \"М\" или \"Ж\"")
         val inputGender = when (readLine()) {
             "М" -> Gender.MAN
@@ -24,16 +24,14 @@ fun main() {
         listPeople.add(Human(name = inputName, gender = inputGender))
     }
     println(listPeople)
+
 }
 
 enum class Gender(nameGender: String) {
     MAN("мужской"),
     FEMALE("женский"),
     ERROR("Ошибка ввода данных");
-
 }
 
-data class Human(val name: String, val gender: Gender) {
-
-}
+data class Human(val name: String?, val gender: Gender)
 
