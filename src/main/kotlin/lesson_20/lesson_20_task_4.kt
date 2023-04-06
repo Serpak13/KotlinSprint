@@ -12,11 +12,15 @@ fun main() {
 
     val listSometing = listOf<String>("элемент 0", "элемент 1", "элемент 2", "элемент 3", "элемент 4",
         "элемент 5", "элемент 6")
-    val lambdaList: (List<String>) -> List<Unit> = {
-        listSometing.mapIndexed { index, element ->
-            if (index % 2 == 0) println("Нажат элемент $element")
+
+    val listOfLambda = listSometing.map{ element ->
+        { println("Нажат $element")}
+     }
+
+    listOfLambda.forEachIndexed { index, lambda ->
+        if (index % 2 == 0) {
+            lambda()
         }
     }
 
-    println(lambdaList(listSometing))
 }
