@@ -21,8 +21,6 @@ fun main() {
     robot.say()
 
 
-
-
 }
 
 class Robot(private var phrases: List<String>) {
@@ -31,7 +29,7 @@ class Robot(private var phrases: List<String>) {
 
 
     fun setModifire() {
-       phrases = phrases.map { it.toList().shuffled().joinToString("").toString() }
+        phrases = phrases.map { it.toList().reversed().joinToString("").toString() }
     }
 
     fun say() {
