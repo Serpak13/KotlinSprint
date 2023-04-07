@@ -9,28 +9,33 @@ package lesson_20
 // Реализуй модификатор, инвертирующий слова робота.
 fun main() {
 
-
-
-    val robot = Robot(listOf<String>(
-        "Привет", "Меня зовут робот Борис", "Я - передовая отечественная разработка",
-        "Но на самом деле", "Я - человек, одетый в костюм работа", "ХА-ХА-ХА", "Как мы всех заскамили?"
-    ))
+    val robot = Robot(
+        listOf<String>(
+            "Привет", "Меня зовут робот Борис", "Я - передовая отечественная разработка",
+            "Но на самом деле", "Я - человек, одетый в костюм работа", "ХА-ХА-ХА", "Как мы всех заскамили?"
+        )
+    )
 
     robot.say()  // Проверка стандартного метода
+    robot.setModifire()
+    robot.say()
 
-    val lambdaForSetModifier: (Robot)-> String = {
-        robot.phrases.random().reversed()
-    }
 
-    fun setModifire(lambdaForSetModifier: (Robot) -> (Robot) -> String){
-        println(lambdaForSetModifier)
-    }
+
 
 }
 
-class Robot (val phrases:List<String>) {
-    fun say(){
-        println(phrases.random())
+class Robot(private var phrases: List<String>) {
+
+    private val lambdaSay = { println(phrases.random()) }
+
+
+    fun setModifire() {
+       phrases = phrases.map { it.toList().shuffled().joinToString("").toString() }
+    }
+
+    fun say() {
+        lambdaSay.invoke()
     }
 }
 
