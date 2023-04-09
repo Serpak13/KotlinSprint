@@ -7,38 +7,40 @@ package lesson_20
 //
 //Робот произносит одну из случайных 5 фраз (придумай фразы самостоятельно).
 // Реализуй модификатор, инвертирующий слова робота.
+
 fun main() {
 
     val robot = Robot(
         listOf<String>(
-            "Привет", "Меня зовут робот Борис", "Я - передовая отечественная разработка",
-            "Но на самом деле", "Я - человек, одетый в костюм работа", "ХА-ХА-ХА", "Как мы всех заскамили?"
+            "Привет, я робот", "Меня зовут Арчи", "Я - передовая разработка",
+            "У меня имеется модификатор речи", "Который позваляет говорит слова задом наперёд"
         )
     )
 
-    val lambdaRevers:(List<String>)-> String = {phrasesList: List<String> ->
-        robot.phrases.random().reversed()
-    }
+
     robot.say()  // Проверка стандартного метода
-    robot.setModifire()
+    robot.setModifier { phrase:String ->
+        phrase.reversed()
+    }
     robot.say()
 
 
-
-
 }
 
-class Robot(var phrases: List<String>) {
+class Robot(private var phrases: List<String>) {
 
-    private val lambdaSay = { println(phrases.random()) }
+    private var modifier: (String) -> String = { it }
 
-
-    fun setModifire() {
-       phrases = phrases.map { it.toList().shuffled().joinToString("").toString() }
+    fun setModifier(modifier: (String) -> String) {
+        this.modifier = modifier
     }
 
     fun say() {
-        lambdaSay.invoke()
+        val randomString = phrases.random()
+        println(modifier(randomString))
     }
+
 }
+
+
 
