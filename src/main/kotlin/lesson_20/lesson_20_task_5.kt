@@ -11,31 +11,34 @@ fun main() {
 
     val robot = Robot(
         listOf<String>(
-            "Привет", "Я - робот", "Я - передовая разработка",
-            "Могу использовать модификатор речи", "Дя того чтобы говорить слова задом наперёд"
+            "Привет", "Меня зовут робот Борис", "Я - передовая отечественная разработка",
+            "Но на самом деле", "Я - человек, одетый в костюм работа", "ХА-ХА-ХА", "Как мы всех заскамили?"
         )
     )
 
     val lambdaRevers:(List<String>)-> String = {phrasesList: List<String> ->
         robot.phrases.random().reversed()
-    }  //делаем реверс
-
+    }
     robot.say()  // Проверка стандартного метода
-    robot.setModifire(lambdaRevers)
+    robot.setModifire()
     robot.say()
+
+
+
+
 }
-
-
 
 class Robot(var phrases: List<String>) {
 
+    private val lambdaSay = { println(phrases.random()) }
 
 
-    fun setModifire(revers:(List<String>)->String) {
-
+    fun setModifire() {
+       phrases = phrases.map { it.toList().shuffled().joinToString("").toString() }
     }
+
     fun say() {
-        println(phrases.random())
+        lambdaSay.invoke()
     }
 }
 
